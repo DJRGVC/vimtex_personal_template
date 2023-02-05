@@ -61,6 +61,9 @@
 \definecolor{myg}{RGB}{56, 140, 70}
 \definecolor{myb}{RGB}{45, 111, 177}
 \definecolor{myr}{RGB}{199, 68, 64}
+\definecolor{mycprooffr}{HTML}{190042}
+\definecolor{mycproofbg}{HTML}{f4edff}
+\definecolor{mytheoremfr}{HTML}{00007B}
 \definecolor{mytheorembg}{HTML}{F2F2F9}
 \definecolor{mytheoremfr}{HTML}{00007B}
 \definecolor{mylemmabg}{HTML}{FFFAF8}
@@ -144,6 +147,49 @@
 	,description font = \mdseries
 	,separator sign none
 }
+
+%================================
+% CPROOF BOX
+%================================
+
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem{Cproof}{Proof}
+{%
+	enhanced
+	,breakable
+	,colback = mycproofbg
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{mycprooffr}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = mycprooffr
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, mycprooffr}
+}
+{th}
+\tcbuselibrary{theorems,skins,hooks}
+\newtcbtheorem[number within=chapter]{cproof}{Cproof}
+{%
+	enhanced
+	,breakable
+	,colback = mycproofbg
+	,frame hidden
+	,boxrule = 0sp
+	,borderline west = {2pt}{0pt}{mmycprooffr}
+	,sharp corners
+	,detach title
+	,before upper = \tcbtitle\par\smallskip
+	,coltitle = mycprooffr
+	,fonttitle = \bfseries\sffamily
+	,description font = \mdseries
+	,separator sign none
+	,segmentation style={solid, mycprooffr}
+}
+{th}
 
 %================================
 % Corollery
@@ -599,7 +645,7 @@
 \newcommand{\dfn}[2]{\begin{Definition}[colbacktitle=red!75!black]{#1}{}#2\end{Definition}}
 \newcommand{\dfnc}[2]{\begin{definition}[colbacktitle=red!75!black]{#1}{}#2\end{definition}}
 \newcommand{\qs}[2]{\begin{question}{#1}{}#2\end{question}}
-\newcommand{\pf}[2]{\begin{myproof}[#1]#2\end{myproof}}
+\newcommand{\pf}[2]{\begin{Cproof}{#1}{}#2\end{Cproof}}
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
